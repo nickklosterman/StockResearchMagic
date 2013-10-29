@@ -1,3 +1,60 @@
-.selected-stock {
-  background: yellow;
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Gerogia', serif;
+}
+
+.stock-window {
+  position: relative;
+  width: 750px;
+  height: 230px;
+  margin-top: -20px;
+  overflow: hidden;
+}
+
+.stock {
+  height: 230px;
+  margin: 0;
+  padding: 0;
+}
+
+.inner {
+  position: absolute;
+}
+
+.control-group {
+  position: absolute;
+}
+
+a {
+  border: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  line-height: normal;
+  letter-spacing: .7px;
+  padding: 8px 10px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background-color: #444;
+  color: #FFF;
+}
+
+a:hover {
+  background-color: #333;
+}
+
+a:active {
+  color: #FFF;
+  outline: none;
 }

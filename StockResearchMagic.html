@@ -3,42 +3,29 @@
 </head>
 
 <body>
-  <h1>Our Stock of interest:</h1>
-  {{> stock }}
-  <hr>
+  <h1>Our Stock of interest</h1>
   {{> stocks }}
 </body>
 
-<template name="stock">
-  <div class="selected-stock">
-    {{#if stockData}}
-    <h2>{{stockData.ticker}}</h2>
-    <div>EPS: {{stockData.EPS}} </div>
-    <div>Ask: {{stockData.Ask}} </div>
-    <div>Open: {{stockData.Open}} </div>
-    <div>PEG Ratio: {{stockData.PEG Ratio}}</div>
-    <div>Beta: {{stockData.Beta}}</div>
-    <div>Volume: {{stockData.Volume}} (I need to format this bitch to make more readable)</div>
-    I can't figure out how to display variables w spaces in their names. FML
-    <div>Avg Volume: {{stockData.Avg Vol}}</div>
-    {{/if}}
-  </div>
-</template>
-
-
-
 <template name="stocks">
-  {{#each stockData}}
-  <div class="stock">
-    <h2>{{ticker}}</h2>
-    <div>EPS: {{EPS}} </div>
-    <div>Ask: {{Ask}} </div>
-    <div>Open: {{Open}} </div>
-    <div>PEG Ratio: {{PEG Ratio}}</div>
-    <div>Beta: {{Beta}}</div>
-    <div>Volume: {{Volume}} (I need to format this bitch to make more readable)</div>
-    I can't figure out how to display variables w spaces in their names. FML
-    <div>Avg Volume: {{Avg Vol}}</div>
+  <div class="stock-window">
+    <div class="inner">
+      {{#each stockData}}
+      <div class="stock">
+        <h2>{{ticker}}</h2>
+        <div>EPS: {{EPS}} </div>
+        <div>Ask: {{Ask}} </div>
+        <div>Open: {{Open}} </div>
+        <div>PEG Ratio: {{PEG Ratio}}</div>
+        <div>Beta: {{Beta}}</div>
+        <div>Volume: {{Volume}} (I need to format this bitch to make more readable)</div>
+        I can't figure out how to display variables w spaces in their names. FML
+        <div>Avg Volume: {{Avg Vol}}</div>
+      </div>
+      {{/each}}
+    </div>
   </div>
-  {{/each}}
+  <div class="control-group">
+    <a href="#" class="next">Next</a>
+  </div>
 </template>

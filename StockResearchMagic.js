@@ -1,6 +1,11 @@
 var stocks = new Meteor.Collection('StockResearchMagic')
   , index = 0, count = null, $elems = null;
 
+var checkInit = function() {
+  if (!$elems) $elems = $('.stock');
+  if (count === null) count = stocks.find().count();
+};
+
 if (Meteor.isClient) {
 
   Meteor.startup(function() {
@@ -15,15 +20,13 @@ if (Meteor.isClient) {
     return stocks.find();
   };
 
-  Template.stock.stockData = function() {
-    return stocks.findOne();
-  };
+  Template.stocks.events({
+    'click .next': function() {
+      checkInit();
+      var top = -250 * ++index;
 
-  Template.stock.events({
-    'click': function() {
-      if (!$elems) $elems = $('.stock');
-      if (count === null) count = stocks.find().count();
-      $('.selected-stock').empty().html($elems.get(index === count ? index = 1 : ++index));
+      $('.inner').animate({ top: top + 'px' }, 500);
+      return false;
     }
   });
 }
