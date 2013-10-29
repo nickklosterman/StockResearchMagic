@@ -1,9 +1,10 @@
 var stocks = new Meteor.Collection('StockResearchMagic')
-  , index = 0, count = null, $elems = null;
+  , index = 1, count = null, $elems = null;
 
 var checkInit = function() {
   if (!$elems) $elems = $('.stock');
   if (count === null) count = stocks.find().count();
+  if (index === count) index = 0;
 };
 
 if (Meteor.isClient) {
@@ -23,7 +24,7 @@ if (Meteor.isClient) {
   Template.stocks.events({
     'click .next': function() {
       checkInit();
-      var top = -250 * ++index;
+      var top = -250 * index++;
 
       $('.inner').animate({ top: top + 'px' }, 500);
       return false;
