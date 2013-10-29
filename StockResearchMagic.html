@@ -4,47 +4,41 @@
 
 <body>
   <h1>Our Stock of interest:</h1>
-  {{> singlestockmagic }}
+  {{> stock }}
   <hr>
-  {{>stockmagic}}
+  {{> stocks }}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
-</template>
-
-
-<template name="singlestockmagic"> 
-  <div class="singleStock">
-    {{#if SingleStockData}}
-    <h1>{{SingleStockData.ticker}}</h1>
-    <div>EPS: {{SingleStockData.EPS}} </div>
-    <div>Ask: {{SingleStockData.Ask}} </div>
-    <div>Open: {{SingleStockData.Open}} </div>
-    <div>PEG Ratio: {{SingleStockData.PEG Ratio}}</div>
-    <div>Beta: {{SingleStockData.Beta}}</div>
-    <div>Volume: {{SingleStockData.Volume}} (I need to format this bitch to make more readable)</div>
+<template name="stock">
+  <div class="selected-stock">
+    {{#if stockData}}
+    <h2>{{stockData.ticker}}</h2>
+    <div>EPS: {{stockData.EPS}} </div>
+    <div>Ask: {{stockData.Ask}} </div>
+    <div>Open: {{stockData.Open}} </div>
+    <div>PEG Ratio: {{stockData.PEG Ratio}}</div>
+    <div>Beta: {{stockData.Beta}}</div>
+    <div>Volume: {{stockData.Volume}} (I need to format this bitch to make more readable)</div>
     I can't figure out how to display variables w spaces in their names. FML
-    <div>Avg Volume: {{SingleStockData.Avg Vol}}</div>
+    <div>Avg Volume: {{stockData.Avg Vol}}</div>
     {{/if}}
   </div>
 </template>
 
 
 
-<template name="stockmagic">
-  {{#each StockData}}
-  <h3>{{ticker}}</h3>
-  <div>EPS: {{EPS}} </div>
-  <div>Ask: {{Ask}} </div>
-  <div>Open: {{Open}} </div>
-  <div>PEG Ratio: {{PEG Ratio}}</div>
-  <div>Beta: {{Beta}}</div>
-  <div>Volume: {{Volume}} (I need to format this bitch to make more readable)</div>
-  I can't figure out how to display variables w spaces in their names. FML
-  <div>Avg Volume: {{Avg Vol}}</div>
-  <hr>
-  {{/each }}
+<template name="stocks">
+  {{#each stockData}}
+  <div class="stock">
+    <h2>{{ticker}}</h2>
+    <div>EPS: {{EPS}} </div>
+    <div>Ask: {{Ask}} </div>
+    <div>Open: {{Open}} </div>
+    <div>PEG Ratio: {{PEG Ratio}}</div>
+    <div>Beta: {{Beta}}</div>
+    <div>Volume: {{Volume}} (I need to format this bitch to make more readable)</div>
+    I can't figure out how to display variables w spaces in their names. FML
+    <div>Avg Volume: {{Avg Vol}}</div>
+  </div>
+  {{/each}}
 </template>

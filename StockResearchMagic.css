@@ -1,4 +1,3 @@
-/* CSS declarations go here */
-.singleStock{
-background:yellow;
+.selected-stock {
+  background: yellow;
 }
